@@ -59,35 +59,6 @@ void sub(int row, int column, int sub_row, int sub_column, int num_of_row, int n
     }
 }
 
-void reduce(int row, int column, int sub_row, int sub_column, int num_of_row, int num_of_column, float arr[][MAX], float arr2[][MAX]){
-
-    printf("\n");
-
-    for (i = 0; i < num_of_row; i++) {
-        for (j = 0; j < num_of_column; j++) {
-            arr[i][j] = arr2[i][j];
-            printf("\t %.2f", arr[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-        for(int j=0; j<num_of_column; j++){
-
-                 arr2[row][j]=arr[row][j]-arr[row+1][j]*arr[row][j];
-        }
-    
-    for (i = 0; i < num_of_row; i++) {
-        for (j = 0; j < num_of_column; j++) {
-            arr[i][j] = arr2[i][j];
-            printf("\t %.2f", arr[i][j]);
-        }
-        printf("\n");
-    }
-
-
-
-
 void echelon() {
 
     int num_of_row, num_of_column;
@@ -752,6 +723,17 @@ int main() {
         printf("7. Division\n");
         printf("8. Determinant\n");
         printf("9. Exit\n");
+        
+        
+        do {
+        	printf("\nEnter the type of calculation you want: ");
+        	scanf("%d", &choice);
+        	
+        	if(choice < 1 || choice > 9) {
+        		printf("Invalid Input!\nEnter a number between 1-9\n");
+			}
+		
+		} while(choice < 1 || choice > 9);
 		
         switch(choice) {
 
@@ -785,6 +767,7 @@ int main() {
             	
             case 8:
                 determinant2();
+                break;
           	
             case 9:
                 printf("\nExiting program...");
@@ -795,6 +778,7 @@ int main() {
         
         printf("\n");
         
+	} while(choice != 9);
 
     return 0;
 }
